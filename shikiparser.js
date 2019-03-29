@@ -1,4 +1,7 @@
+const { ipcRenderer } = require('electron');
 const child_process = require('child_process');
+var discordNode = child_process.fork('discordrpc.js', {detached: true})
+ipcRenderer.send('pid-message', discordNode.pid);
 document.body.classList.add("body");
 document.getElementById('discord').removeChild(document.getElementById('logo'));
 document.getElementById('animeId').classList.remove('input-center');
@@ -83,9 +86,7 @@ request.get({
         discord.innerHTML = 'Обновить Discord';
         discord.classList.add('button');
         document.getElementById('discord').appendChild(discord);
-        var i = 0;
         discord.onclick = function b() {
-        var discordNode = child_process.fork('discordrpc.js')
         discordNode.send(anime);
         }
         animeIdButton.onclick = function animeIdButton() {
