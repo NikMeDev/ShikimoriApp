@@ -1,9 +1,10 @@
 const client = require('discord-rich-presence')('560519545517768724');
 
-process.on('message', (m) => {
+process.on('message', (message) => {
+  console.log(message.episode);
   client.updatePresence({
-    state: m.name,
-    details: m.russian,
+    state: message.name + '/' + message.russian,
+    details:'Серия: ' + message.episode + '/' + message.episodes,
     largeImageKey: 'favicon',
     instance: true,
   })

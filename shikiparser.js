@@ -1,7 +1,4 @@
 const { ipcRenderer } = require('electron');
-const child_process = require('child_process');
-var discordNode = child_process.fork('discordrpc.js', {detached: true})
-ipcRenderer.send('pid-message', discordNode.pid);
 document.body.classList.add("body");
 document.getElementById('discord').removeChild(document.getElementById('logo'));
 document.getElementById('animeId').classList.remove('input-center');
@@ -82,13 +79,16 @@ request.get({
         animeDescription.classList.add('discriprion');
         main.appendChild(animeDescription);
 
-        var discord = document.createElement('button');
-        discord.innerHTML = 'Обновить Discord';
-        discord.classList.add('button');
-        document.getElementById('discord').appendChild(discord);
-        discord.onclick = function b() {
-        discordNode.send(anime);
+        var play = document.createElement('button');
+        play.innerHTML = 'Смотреть онлайн';
+        play.classList.add('button');
+        document.getElementById('discord').appendChild(play);
+        play.onclick = function playFunction() {
+          ipcRenderer.send('anime-message', anime)
+          console.log("You got a message :)")
+          ipcRenderer.send('redirect-message', anime.id);
         }
+
         animeIdButton.onclick = function animeIdButton() {
           if(res.statusCode == 404) {
             console.log(res.statusCode)
