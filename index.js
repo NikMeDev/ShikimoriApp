@@ -7,7 +7,7 @@ const { ipcRenderer, ipcMain, app, BrowserWindow } = require('electron');
 let win;
 
 function createWindow () {
-  let win = new BrowserWindow({ width: 1500, height: 900, icon:'favicon.ico' })
+  let win = new BrowserWindow({ width: 1600, height: 900, icon:'favicon.ico' })
   win.setMenu(null);
   win.loadFile('index.html')
   ipcMain.on('redirect-message', function(event, arg) {

@@ -1,9 +1,11 @@
 body {
-    background-color: grey;
+    background-image: url(background.png);
+    background-size: 1600px 900px;
     font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
 }
 .body {
     background-color: white;
+    background-image: none;
 }
 .logo {
     position: absolute;
