@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 body {
-    background-image: url(background.png);
+    background-image: url(background.jpg);
     background-size: 1600px 900px;
     font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
 }
@@ -8,8 +9,14 @@ body {
     background-image: none;
 }
 .logo {
+    color: white;
+    font-size: 100px;
+    font-family: 'Gloria Hallelujah', cursive;
+    text-shadow: black 0 0 10px;
+    width: 422px;
+    height: 86px;
     position: absolute;
-        top: 40%;
+        top: 23%;
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
@@ -146,8 +153,8 @@ a {
     padding: 1rem 2rem;
     margin: 0;
     text-decoration: none;
-    background: #0069ed;
-    color: #ffffff;
+    background: white;
+    color: black;
     font-family: sans-serif;
     font-size: 1rem;
     cursor: pointer;
@@ -160,7 +167,7 @@ a {
 
 .button-center:hover,
 .button-center:focus {
-    background: #0053ba;
+    background: lightgray;
 }
 
 .button-center:focus {
@@ -182,8 +189,8 @@ a {
     padding: 1rem 2rem;
     margin: 0;
     text-decoration: none;
-    background: #0069ed;
-    color: #ffffff;
+    background: white;
+    color: black;
     font-family: sans-serif;
     font-size: 1rem;
     cursor: pointer;
@@ -195,7 +202,7 @@ a {
 }
 .input-center:hover,
 .input-center:focus {
-    background: #0053ba;
+    background: lightgray;
 }
 
 .input-center:focus {
@@ -205,7 +212,7 @@ a {
 
 
 .input-center::placeholder {
-    color: #ffffff;
+    color: black;
     font-family: sans-serif;
     font-size: 1rem;
 }
