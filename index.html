@@ -7,11 +7,73 @@
     <link href="favicon.png" rel="icon">
 </head>
 <body>
+    <div id="ID" class="invisble"></div>
     <div id="discord">
         <h1 class="logo" id="logo">Shikimori</h1>    
         <!-- <img src="logo.png" class="logo" id="logo"> -->
-        <input type="text" id="animeId" placeholder="Айди" class="input-center">
-        <button class="button-center" onclick="require('./shikiparser.js');" id="animeIdButton">Потвердить</button></div>
+        <input type="text" id="animeId" placeholder="Название" class="input-center">
+        <script>
+        var animePre = document.getElementById('animeId');
+        animePre.oninput = function() {
+        
+        const request = require('request');
+        console.log("dffd")
+        var animeId = document.getElementById('animeId').value;
+        console.log(animeId)
+        var url = 'https://shikimori.org/api/animes?search=' + animeId;
+        request.get({ 
+        url: url,
+        json: true,
+        headers: {'User-Agent': 'request'}
+      }, (err, res, anime) => {
+        if (err) {
+          console.log('Error:', err);
+        } else if (res.statusCode !== 200) {
+          console.log('Status:', res.statusCode);
+        } else {
+            var animePreId = anime[0].id;
+
+            document.getElementById("ID").innerHTML = animePreId;
+
+            document.getElementById("discord").removeChild(document.getElementById("pre-anime"));
+            
+            var preAnime = document.createElement("div");
+
+            preAnime.setAttribute("onclick", "require('./shikiparser.js')");
+            
+            preAnime.setAttribute("id", "pre-anime");
+
+            preAnime.setAttribute("class", "pre-anime-center")
+
+            document.getElementById("discord").appendChild(preAnime);
+
+            console.log(anime)
+
+            var animeIMGS = anime[0].image;
+
+            console.log(animeIMGS)
+
+            var animePIC = animeIMGS.original;
+
+            console.log(animePIC)
+
+            var animeIMG = document.createElement("IMG");
+
+            animeIMG.setAttribute("src", "https://shikimori.org" + animePIC);
+
+            document.getElementById('pre-anime').appendChild(animeIMG);
+
+            var preName = document.createElement("p");
+
+            preName.innerHTML = anime[0].name;
+
+            document.getElementById('pre-anime').appendChild(preName);
+        }
+    }
+    )}
+
+        </script>
+        <div id="pre-anime" class="invisible"></div>
     <div id="main"><div>
 </body>
 </html>

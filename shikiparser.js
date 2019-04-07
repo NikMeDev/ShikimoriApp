@@ -1,16 +1,17 @@
 const { ipcRenderer } = require('electron');
 document.body.classList.add("body");
 document.getElementById('discord').removeChild(document.getElementById('logo'));
-document.getElementById('animeId').classList.remove('input-center');
-document.getElementById('animeId').classList.add('input');
-document.getElementById('animeIdButton').classList.remove('button-center');
-document.getElementById('animeIdButton').classList.add('button');
+document.getElementById('discord').removeChild(document.getElementById('animeId'));
+document.getElementById('discord').removeChild(document.getElementById('pre-anime'));
 var main = document.getElementById('main');
 var animeIdButton = document.getElementById('animeIdButton');
 function shikiparser() {
 console.log('Im here')
 const request = require('request');
-var animeId = document.getElementById('animeId').value;
+
+console.log(document.getElementById("ID").innerHTML)
+var animeId = document.getElementById("ID").innerHTML
+document.body.removeChild(document.getElementById('ID'));
 var url = 'https://shikimori.org/api/animes/' + animeId;
 request.get({
     url: url,

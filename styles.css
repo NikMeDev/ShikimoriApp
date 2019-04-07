@@ -78,11 +78,10 @@ a {
     text-decoration: none;
 }
 .button {
-    display: inline-block;
     border: none;
     padding: 1rem 2rem;
     margin: 0;
-    margin-left: 15px;
+    margin-top: 15px;
     text-decoration: none;
     background: #0069ed;
     color: #ffffff;
@@ -177,7 +176,6 @@ a {
 
 
 .input-center {
-
     position: absolute;
         top: 50%;
         left: 50%;
@@ -217,3 +215,53 @@ a {
     font-size: 1rem;
 }
 
+.pre-anime-center {
+    width: 255px;
+    height: 60px;
+    position: absolute;
+        top: 56.3%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+
+    border: none;
+
+    margin: 0;
+    text-decoration: none;
+    background: white;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.pre-anime-center:hover,
+.input-center:focus {
+    background: lightgray;
+}
+
+.pre-anime-center:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+
+.pre-anime-center::placeholder {
+    color: black;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    float: left;
+}
+
+.invisible {
+    display: none;
+}
