@@ -7,7 +7,7 @@
     <link href="favicon.png" rel="icon">
 </head>
 <body>
-    <div id="ID" class="invisble"></div>
+    <div id="ID" class="invisible"></div>
     <div id="discord">
         <h1 class="logo" id="logo">Shikimori</h1>    
         <!-- <img src="logo.png" class="logo" id="logo"> -->
@@ -15,14 +15,16 @@
         <script>
         var animePre = document.getElementById('animeId');
         animePre.oninput = function() {
-        
         const request = require('request');
         console.log("dffd")
         var animeId = document.getElementById('animeId').value;
         console.log(animeId)
-        var url = 'https://shikimori.org/api/animes?search=' + animeId;
+
+        var uri = 'https://shikimori.org/api/animes?search=' + animeId;
+        var url = encodeURI(uri);
         request.get({ 
         url: url,
+        encoding: "utf8",
         json: true,
         headers: {'User-Agent': 'request'}
       }, (err, res, anime) => {
@@ -47,6 +49,11 @@
 
             document.getElementById("discord").appendChild(preAnime);
 
+            if (animeId == '') {
+              document.getElementById("discord").removeChild(document.getElementById("pre-anime"));
+              preAnime.setAttribute("class", "invisible")
+              document.getElementById("discord").appendChild(preAnime);
+            } else {
             console.log(anime)
 
             var animeIMGS = anime[0].image;
@@ -68,6 +75,7 @@
             preName.innerHTML = anime[0].name;
 
             document.getElementById('pre-anime').appendChild(preName);
+            }
         }
     }
     )}
