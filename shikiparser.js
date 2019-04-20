@@ -26,6 +26,14 @@ request.get({
       shikiparser();
     }
     } else {
+      var back = document.createElement('button');
+        back.innerHTML = '<- Вернутся назад';
+        back.classList.add('back-button');
+        document.getElementById("back-button").appendChild(back);
+        back.onclick = function playFunction() {
+          ipcRenderer.send('back', anime)
+        }
+
       var studiosInfo = anime.studios[0];
         var animeIMG = document.createElement("IMG");
         animeIMG.setAttribute("src", "https://shikimori.org" + anime.image.original);

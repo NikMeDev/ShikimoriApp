@@ -10,6 +10,9 @@ function createWindow () {
   let win = new BrowserWindow({ width: 1600, height: 900, icon:'favicon.ico' })
   win.setMenu(null);
   win.loadFile('index.html')
+    ipcMain.on('back', function(event, arg) {
+    win.loadFile('index.html');
+  });
   ipcMain.on('redirect-message', function(event, arg) {
     console.log('ID:', arg);
     win.loadURL('https://play.shikimori.org/animes/' + arg + '/video_online/1')

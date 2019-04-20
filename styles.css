@@ -100,10 +100,7 @@ a {
     background: #0053ba;
 }
 
-.button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
+
 
 
 .input {
@@ -128,10 +125,7 @@ a {
     background: #0053ba;
 }
 
-.input:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
+
 
 .input::placeholder {
     color: #ffffff;
@@ -169,10 +163,7 @@ a {
     background: lightgray;
 }
 
-.button-center:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
+
 
 
 .input-center {
@@ -203,10 +194,7 @@ a {
     background: lightgray;
 }
 
-.input-center:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
+
 
 
 .input-center::placeholder {
@@ -244,10 +232,7 @@ a {
     background: lightgray;
 }
 
-.pre-anime-center:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
+
 
 
 .pre-anime-center::placeholder {
@@ -264,4 +249,31 @@ img {
 
 .invisible {
     display: none;
+}
+
+.back-button {
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    margin-top: 15px;
+    text-decoration: none;
+    background: #d63031;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.back-button:hover,
+.back-button:focus {
+    background: #c0392b;
+}
+
+.player-area {
+    display: flex;
 }
